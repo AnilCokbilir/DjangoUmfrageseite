@@ -1,0 +1,12 @@
+{% extends 'polls/base.html' %} {% block content %}
+
+<h1>{{title}}</h1>
+{% if umfragen %}
+<p class="lead">Herzlich willkommen auf der Abstimmungsseite für meine Umfragen! Hier könnt Ihr einfach abstimmen.</p>
+<hr>
+<ul>
+    {% for umfrage in umfragen %}
+    <li><a href="{% url 'umfrage-detail' umfrage.slug%}">{{umfrage.name}}</a></li>
+    {% endfor %}
+</ul>
+{% endif %} {% endblock %}
